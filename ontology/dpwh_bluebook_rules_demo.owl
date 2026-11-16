@@ -1,0 +1,2378 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.example.org/dpwh-bluebook-rules-demo#"
+     xml:base="http://www.example.org/dpwh-bluebook-rules-demo"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dpwh="http://www.example.org/dpwh-bluebook#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
+    <owl:Ontology rdf:about="http://www.example.org/dpwh-bluebook-rules-demo">
+        <owl:imports rdf:resource="http://www.example.org/dpwh-bluebook"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#appliesToMaterial -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#appliesToMaterial">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#appliesToWork -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#appliesToWork">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#belongsToVolume -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#belongsToVolume">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/dpwh-bluebook#belongsToVolume"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/dpwh-bluebook#Volume"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#crossReferencesItem -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#crossReferencesItem">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/dpwh-bluebook#belongsToVolume"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/dpwh-bluebook#Volume"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#evaluatesLimit -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#evaluatesLimit">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#followsStandard -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#followsStandard">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#hasAcceptanceCriterion -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#hasAcceptanceCriterion">
+        <rdfs:range rdf:resource="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#hasApplicableTestMethod -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#hasApplicableTestMethod">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#hasComplianceOutcome -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#hasComplianceOutcome">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#hasCondition -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#hasCondition">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#hasLimit -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#hasLimit">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#hasSourceItem -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#hasSourceItem">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/dpwh-bluebook#belongsToVolume"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/dpwh-bluebook#Volume"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#hasSourceSubItem -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#hasSourceSubItem">
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/dpwh-bluebook#isPartOfItem"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#hasTestingFrequency -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#hasTestingFrequency">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#hasTolerance -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#hasTolerance">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#isPartOfItem -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#isPartOfItem">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/dpwh-bluebook#isPartOfItem"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/dpwh-bluebook#belongsToVolume"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/dpwh-bluebook#Volume"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#limitsParameter -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#limitsParameter">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#measuresParameter -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#measuresParameter">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#requiresActivity -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#requiresActivity">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#requiresTestMethod -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#requiresTestMethod">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#conditionText -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#conditionText">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#frequencyCount -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#frequencyCount">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#frequencyQuantity -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#frequencyQuantity">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#frequencyQuantityUnit -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#frequencyQuantityUnit">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#hasExactValue -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#hasExactValue">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#hasMaximumValue -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#hasMaximumValue">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#hasMinimumValue -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#hasMinimumValue">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#itemNumber -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#itemNumber">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/dpwh-bluebook#belongsToVolume"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/dpwh-bluebook#Volume"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#itemTitle -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#itemTitle">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/dpwh-bluebook#belongsToVolume"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/dpwh-bluebook#Volume"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#limitIsExclusive -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#limitIsExclusive">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#measuredValue -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#measuredValue">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#normativeStrength -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#normativeStrength">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#requirementText -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#requirementText">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#subItemDesignation -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#subItemDesignation">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/dpwh-bluebook#isPartOfItem"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#AcceptanceCriterion -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#AcceptanceCriterion">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#Admixture -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Admixture">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#Aggregate -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Aggregate">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#ApplicabilityCondition -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#BituminousMaterial -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BituminousMaterial">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#BlueBookItem -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#CementitiousMaterial -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#CementitiousMaterial">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#ConcreteMaterial -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConcreteMaterial">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#ConstructionWork -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#GeosyntheticMaterial -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#GeosyntheticMaterial">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#MasonryMaterial -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#MasonryMaterial">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#Material -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#MaterialRequirement -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#MaterialRequirement">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#PaintAndCoatingMaterial -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#PaintAndCoatingMaterial">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#PipeAndDrainageMaterial -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#PipeAndDrainageMaterial">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#QualityAssuranceRequirement -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QualityAssuranceRequirement">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#QualityControlRequirement -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QualityControlRequirement">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#QuantitativeLimit -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#ReferenceStandard -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ReferenceStandard">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#Requirement -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#SpecificationLimit -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#SpecificationLimit">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#SteelMaterial -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#SteelMaterial">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#TestMethod -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#TestResult -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#TestingFrequency -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#TestingRequirement -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingRequirement">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#TimberMaterial -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TimberMaterial">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Material"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#ToleranceValue -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ToleranceValue">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook#WorkmanshipRequirement -->
+
+    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#WorkmanshipRequirement">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ApplicabilityCondition"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#ConstructionWork"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestMethod"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#AboveMaximum -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#AboveMaximum"/>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#BelowMinimum -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#BelowMinimum"/>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_Equal -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_Equal">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestResult"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:evaluatesLimit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_Equal_limit"/>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_mm"/>
+        <dpwh:measuredValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">75.0</dpwh:measuredValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_Equal_limit -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_Equal_limit">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_mm"/>
+        <dpwh:hasMaximumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">75.0</dpwh:hasMaximumValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_High -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_High">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestResult"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:evaluatesLimit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_High_limit"/>
+        <dpwh:hasComplianceOutcome rdf:resource="http://www.example.org/dpwh-bluebook#NonCompliant"/>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_mm"/>
+        <dpwh:measuredValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">90.0</dpwh:measuredValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_High_limit -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_High_limit">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_mm"/>
+        <dpwh:hasMaximumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">75.0</dpwh:hasMaximumValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_Low -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_Low">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestResult"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:evaluatesLimit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_Low_limit"/>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_mm"/>
+        <dpwh:measuredValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60.0</dpwh:measuredValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_Low_limit -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Slump_Low_limit">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_mm"/>
+        <dpwh:hasMaximumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">75.0</dpwh:hasMaximumValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_Equal -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_Equal">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestResult"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:evaluatesLimit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_Equal_limit"/>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_MPa"/>
+        <dpwh:measuredValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.7</dpwh:measuredValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_Equal_limit -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_Equal_limit">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_MPa"/>
+        <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.7</dpwh:hasMinimumValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_High -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_High">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestResult"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:evaluatesLimit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_High_limit"/>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_MPa"/>
+        <dpwh:measuredValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">22.0</dpwh:measuredValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_High_limit -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_High_limit">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_MPa"/>
+        <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.7</dpwh:hasMinimumValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_Low -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_Low">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestResult"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:evaluatesLimit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_Low_limit"/>
+        <dpwh:hasComplianceOutcome rdf:resource="http://www.example.org/dpwh-bluebook#NonCompliant"/>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_MPa"/>
+        <dpwh:measuredValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">19.5</dpwh:measuredValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_Low_limit -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Strength_Low_limit">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_MPa"/>
+        <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.7</dpwh:hasMinimumValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_MPa -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_MPa">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MeasurementUnit"/>
+        <dpwh:unitSymbol>MPa</dpwh:unitSymbol>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_Mismatch -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_Mismatch">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestResult"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:evaluatesLimit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_Mismatch_limit"/>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_psi"/>
+        <dpwh:measuredValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</dpwh:measuredValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_Mismatch_limit -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_Mismatch_limit">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#Requirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <rdf:type>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#QuantitativeLimit"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestResult"/>
+                    <rdf:Description rdf:about="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdf:type>
+        <dpwh:hasUnit rdf:resource="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_MPa"/>
+        <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.7</dpwh:hasMinimumValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_mm -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_mm">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MeasurementUnit"/>
+        <dpwh:unitSymbol>mm</dpwh:unitSymbol>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_psi -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/dpwh-bluebook-rules-demo#TEST_Unit_psi">
+        <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MeasurementUnit"/>
+        <dpwh:unitSymbol>psi</dpwh:unitSymbol>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="urn:swrl#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#l">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#v">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#u">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#m">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/dpwh-bluebook#TestResult"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.example.org/dpwh-bluebook#evaluatesLimit"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#l"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.example.org/dpwh-bluebook#measuredValue"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#v"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.example.org/dpwh-bluebook#hasMaximumValue"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl#l"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl#x"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.example.org/dpwh-bluebook#hasUnit"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl#r"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl#u"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.example.org/dpwh-bluebook#hasUnit"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl#l"/>
+                                                                <swrl:argument2 rdf:resource="urn:swrl#u"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                                                        <swrl:arguments rdf:parseType="Collection">
+                                                                            <rdf:Description rdf:about="urn:swrl#v"/>
+                                                                            <rdf:Description rdf:about="urn:swrl#x"/>
+                                                                        </swrl:arguments>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.example.org/dpwh-bluebook#hasComplianceOutcome"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#r"/>
+                        <swrl:argument2 rdf:resource="http://www.example.org/dpwh-bluebook#NonCompliant"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.example.org/dpwh-bluebook#TestResult"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.example.org/dpwh-bluebook#evaluatesLimit"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#l"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.example.org/dpwh-bluebook#measuredValue"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#v"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.example.org/dpwh-bluebook#hasMinimumValue"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl#l"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl#m"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.example.org/dpwh-bluebook#hasUnit"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl#r"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl#u"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.example.org/dpwh-bluebook#hasUnit"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl#l"/>
+                                                                <swrl:argument2 rdf:resource="urn:swrl#u"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                                                                        <swrl:arguments rdf:parseType="Collection">
+                                                                            <rdf:Description rdf:about="urn:swrl#v"/>
+                                                                            <rdf:Description rdf:about="urn:swrl#m"/>
+                                                                        </swrl:arguments>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.example.org/dpwh-bluebook#hasComplianceOutcome"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#r"/>
+                        <swrl:argument2 rdf:resource="http://www.example.org/dpwh-bluebook#NonCompliant"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

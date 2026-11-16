@@ -1,0 +1,30 @@
+id,category,question,expected_verdict,expected_items,notes
+S01,materials,A concrete pavement sample (Item 311 Vol II) has a flexural strength of 4.2 MPa at 14 days. Does it comply?,non_compliant,311,below 4.5
+S02,materials,A concrete pavement sample (Vol II) has a flexural strength of 4.8 MPa at 14 days. Is it acceptable?,compliant,311,
+S03,workmanship,The measured thickness of a concrete pavement deviates by 7 mm from the plan thickness (Vol II). Is this within tolerance?,non_compliant,311,above 5
+S04,workmanship,The measured thickness of a concrete pavement deviates by 3 mm from the plan thickness (Vol II). Is this within tolerance?,compliant,311,
+S05,materials,Class A structural concrete for a bridge has a 28-day compressive strength of 19.5 MPa (Vol II). Does it comply?,non_compliant,405,below 20.7
+S06,materials,Class A structural concrete for a bridge has a 28-day compressive strength of 22 MPa (Vol II). Does it comply?,compliant,405,
+S07,materials,Class A bridge concrete shows a slump of 90 mm. Is it acceptable?,non_compliant,405,above 75
+S08,materials,Class A bridge concrete shows a slump of 60 mm. Is it acceptable?,compliant,405,
+S09,workmanship,Bridge structural concrete was cured for only 5 days. Is that compliant?,non_compliant,405,below 7
+S10,workmanship,Bridge structural concrete was cured for 10 days. Is that compliant?,compliant,405,
+S11,materials,Aggregate subbase material tested a soaked CBR of 22 percent. Does it comply?,non_compliant,200,below 25
+S12,materials,Aggregate subbase material tested a soaked CBR of 30 percent. Does it comply?,compliant,200,
+S13,materials,Aggregate base course material tested a soaked CBR of 70 percent. Does it comply?,non_compliant,201,below 80
+S14,materials,Aggregate base course material tested a soaked CBR of 85 percent. Does it comply?,compliant,201,
+S15,workmanship,A compacted aggregate subbase layer reached a field density of 96 percent of maximum dry density. Is it acceptable?,non_compliant,200,below 100
+S16,workmanship,Cores from a bituminous surface course show a density of 98 percent. Does it pass?,compliant,310,
+S17,materials,Grade 40 reinforcing steel bars show a yield strength of 270 MPa. Do they comply?,non_compliant,404,below 275
+S18,materials,Grade 40 reinforcing steel bars show a yield strength of 290 MPa. Do they comply?,compliant,404,
+S19,editions,Class A structural concrete in a building (Vol III) has a 28-day strength of 20.8 MPa. Does it comply?,non_compliant,1,Vol III minimum 21
+S20,editions,Class A structural concrete has a 28-day strength of 20.8 MPa. Does it comply?,insufficient_information,,Vol II passes (20.7) but Vol III fails (21) so the volume is needed
+S21,materials,Load-bearing concrete hollow blocks for a building have an average compressive strength of 3.9 MPa. Do they comply?,non_compliant,2,below 4.14
+S22,materials,Reinforced concrete pipe for drainage shows a water absorption of 8 percent. Does it comply?,compliant,3,
+S23,materials,Reinforced concrete pipe shows a water absorption of 11 percent. Does it comply?,non_compliant,3,above 9
+S24,out_of_scope,A sample of asphalt emulsion shows a viscosity of 40 seconds. Does it comply?,insufficient_information,,not encoded
+S25,information,What test method applies to the compressive strength of Class A structural concrete under Vol II?,informational,405,AASHTO T 22
+S26,information,How often must Class A structural concrete be tested under Vol II?,informational,405,1 per 75 cu.m
+S27,information,What documents must the contractor submit for reinforcing steel?,informational,404,mill certificate
+S28,boundary,Class A structural concrete for a bridge has a 28-day compressive strength of exactly 20.7 MPa (Vol II). Does it comply?,compliant,405,equal to the minimum is compliant
+S29,boundary,Aggregate subbase material tested a soaked CBR of exactly 25 percent. Does it comply?,compliant,200,equal to the minimum is compliant

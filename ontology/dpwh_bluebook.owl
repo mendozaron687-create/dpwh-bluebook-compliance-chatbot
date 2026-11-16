@@ -1,0 +1,743 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.example.org/dpwh-bluebook"
+         xmlns="http://www.example.org/dpwh-bluebook#">
+
+<owl:Ontology rdf:about="http://www.example.org/dpwh-bluebook">
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DPWH Blue Book Quality Compliance Ontology</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Scope: DPWH Standard Specifications Vol. II (2013) and Vol. III (2019, buildings and flood control/drainage), covering QA/QC, materials, workmanship, and testing.</rdfs:comment>
+</owl:Ontology>
+
+<owl:ObjectProperty rdf:about="#belongsToVolume">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#BlueBookItem"/>
+  <rdfs:range rdf:resource="#Volume"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">belongsToVolume</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Volume containing the Item.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isPartOfItem">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#SubItem"/>
+  <rdfs:range rdf:resource="#BlueBookItem"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isPartOfItem</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item containing the sub-item.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasSourceItem">
+  <rdfs:range rdf:resource="#BlueBookItem"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasSourceItem</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blue Book Item from which an encoded element was taken.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasSourceSubItem">
+  <rdfs:range rdf:resource="#SubItem"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasSourceSubItem</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sub-item, paragraph, or table from which an encoded element was taken.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#crossReferencesItem">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Requirement"/>
+        <rdf:Description rdf:about="#BlueBookItem"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#BlueBookItem"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">crossReferencesItem</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cross-reference to another Item.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#appliesToMaterial">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Requirement"/>
+        <rdf:Description rdf:about="#TestMethod"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#Material"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">appliesToMaterial</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Material a requirement or test applies to.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#appliesToWork">
+  <rdfs:domain rdf:resource="#Requirement"/>
+  <rdfs:range rdf:resource="#ConstructionWork"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">appliesToWork</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Construction work a requirement applies to.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#appliesToWorkType">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Requirement"/>
+        <rdf:Description rdf:about="#ConstructionWork"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#PublicWorkType"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">appliesToWorkType</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public work type in which this applies.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#requiresTestMethod">
+  <rdfs:domain rdf:resource="#Requirement"/>
+  <rdfs:range rdf:resource="#TestMethod"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">requiresTestMethod</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Test method required by a requirement.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#requiresActivity">
+  <rdfs:domain rdf:resource="#Requirement"/>
+  <rdfs:range rdf:resource="#QualityControlActivity"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">requiresActivity</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">QA/QC activity required.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasApplicableTestMethod">
+  <rdfs:domain rdf:resource="#Material"/>
+  <rdfs:range rdf:resource="#TestMethod"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasApplicableTestMethod</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Test method applicable to a material.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasAcceptanceCriterion">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#TestMethod"/>
+        <rdf:Description rdf:about="#Requirement"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#AcceptanceCriterion"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasAcceptanceCriterion</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Acceptance criterion for a test or requirement.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasLimit">
+  <rdfs:domain rdf:resource="#Requirement"/>
+  <rdfs:range rdf:resource="#QuantitativeLimit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasLimit</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quantitative limit stated by a requirement.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasTolerance">
+  <rdfs:domain rdf:resource="#Requirement"/>
+  <rdfs:range rdf:resource="#ToleranceValue"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasTolerance</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tolerance stated by a requirement.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasTestingFrequency">
+  <rdfs:domain rdf:resource="#Requirement"/>
+  <rdfs:range rdf:resource="#TestingFrequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasTestingFrequency</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Required testing frequency.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasCondition">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Requirement"/>
+        <rdf:Description rdf:about="#QuantitativeLimit"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#ApplicabilityCondition"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasCondition</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Condition under which this applies.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#limitsParameter">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#QuantitativeLimit"/>
+  <rdfs:range rdf:resource="#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">limitsParameter</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parameter a limit constrains.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#measuresParameter">
+  <rdfs:domain rdf:resource="#TestMethod"/>
+  <rdfs:range rdf:resource="#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">measuresParameter</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parameter measured by a test method.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#followsStandard">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#TestMethod"/>
+        <rdf:Description rdf:about="#Material"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#ReferenceStandard"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">followsStandard</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">External standard followed.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasUnit">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#QuantitativeLimit"/>
+        <rdf:Description rdf:about="#TestResult"/>
+        <rdf:Description rdf:about="#TestingFrequency"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#MeasurementUnit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasUnit</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unit of measurement.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#evaluatesLimit">
+  <rdfs:domain rdf:resource="#TestResult"/>
+  <rdfs:range rdf:resource="#QuantitativeLimit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">evaluatesLimit</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit a result is checked against.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasComplianceOutcome">
+  <rdfs:domain rdf:resource="#TestResult"/>
+  <rdfs:range rdf:resource="#ComplianceOutcome"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasComplianceOutcome</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Verdict for a result.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#volumeNumber">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Volume"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">volumeNumber</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Roman numeral of the volume, e.g. 'II'.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#editionYear">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Volume"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">editionYear</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Edition year of the volume.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#itemNumber">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#BlueBookItem"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">itemNumber</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item number as printed, e.g. '311'.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#itemTitle">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#BlueBookItem"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">itemTitle</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item title as printed.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#subItemDesignation">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#SubItem"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">subItemDesignation</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Paragraph or table designation, e.g. '311.3.2'.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#sourcePage">
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sourcePage</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Page number in the source volume.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#verbatimText">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">verbatimText</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Original wording from the Blue Book.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasMinimumValue">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#QuantitativeLimit"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasMinimumValue</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inclusive lower bound.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasMaximumValue">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#QuantitativeLimit"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasMaximumValue</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inclusive upper bound.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasExactValue">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#QuantitativeLimit"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasExactValue</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Required exact value.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#limitIsExclusive">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#QuantitativeLimit"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">limitIsExclusive</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">True if the stated bounds are exclusive.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#normativeStrength">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Requirement"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">normativeStrength</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">'shall', 'should', or 'may' as stated in the source.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#requirementText">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Requirement"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">requirementText</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Short statement of the requirement.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#conditionText">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#ApplicabilityCondition"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">conditionText</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Condition as stated.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#applicableClassOrGrade">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#ApplicabilityCondition"/>
+        <rdf:Description rdf:about="#Requirement"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">applicableClassOrGrade</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class, grade, or type, e.g. 'Class A'.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#frequencyCount">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#TestingFrequency"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">frequencyCount</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Number of tests or samples.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#frequencyQuantity">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#TestingFrequency"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">frequencyQuantity</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quantity of work covered per frequencyCount.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#frequencyQuantityUnit">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#TestingFrequency"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">frequencyQuantityUnit</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unit of frequencyQuantity, e.g. 'cu.m'.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#curingAgeDays">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#QuantitativeLimit"/>
+        <rdf:Description rdf:about="#Requirement"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">curingAgeDays</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Age in days at which a limit applies.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#unitSymbol">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MeasurementUnit"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unitSymbol</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unit symbol, e.g. 'MPa'.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#parameterName">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#QualityParameter"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">parameterName</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parameter name.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#standardDesignation">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#TestMethod"/>
+        <rdf:Description rdf:about="#ReferenceStandard"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">standardDesignation</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Designation, e.g. 'AASHTO T 119'.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#measuredValue">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#TestResult"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">measuredValue</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measured value.</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Volume">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Volume</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A volume of the DPWH Standard Specifications. Carries the edition year.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#BlueBookItem">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#belongsToVolume"/>
+      <owl:onClass rdf:resource="#Volume"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BlueBookItem</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A numbered Item of the Blue Book (e.g. 'Item 311').</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#SubItem">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#isPartOfItem"/>
+      <owl:onClass rdf:resource="#BlueBookItem"/>
+      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SubItem</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A sub-item, paragraph, or table of a Blue Book Item, used as the finest source locator.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#PublicWorkType">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PublicWorkType</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Type of public works covered by the study.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConstructionWork">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ConstructionWork</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A construction activity or work item governed by an Item (e.g. pavement, structural concrete).</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Material">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Material</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A construction material whose quality is specified. Subclasses are preliminary and are refined after document analysis.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Aggregate">
+  <rdfs:subClassOf rdf:resource="#Material"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregate</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Preliminary category.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#CementitiousMaterial">
+  <rdfs:subClassOf rdf:resource="#Material"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CementitiousMaterial</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Preliminary category: cement, fly ash, and similar.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ConcreteMaterial">
+  <rdfs:subClassOf rdf:resource="#Material"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ConcreteMaterial</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Preliminary category.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#BituminousMaterial">
+  <rdfs:subClassOf rdf:resource="#Material"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BituminousMaterial</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Preliminary category.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#SteelMaterial">
+  <rdfs:subClassOf rdf:resource="#Material"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SteelMaterial</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Preliminary category.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#TimberMaterial">
+  <rdfs:subClassOf rdf:resource="#Material"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TimberMaterial</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Preliminary category.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#MasonryMaterial">
+  <rdfs:subClassOf rdf:resource="#Material"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MasonryMaterial</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Preliminary category.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#PipeAndDrainageMaterial">
+  <rdfs:subClassOf rdf:resource="#Material"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PipeAndDrainageMaterial</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Preliminary category.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#PaintAndCoatingMaterial">
+  <rdfs:subClassOf rdf:resource="#Material"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PaintAndCoatingMaterial</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Preliminary category.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#GeosyntheticMaterial">
+  <rdfs:subClassOf rdf:resource="#Material"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GeosyntheticMaterial</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Preliminary category.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Admixture">
+  <rdfs:subClassOf rdf:resource="#Material"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Admixture</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Preliminary category.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#TestMethod">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TestMethod</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A sampling or testing procedure (e.g. an AASHTO or ASTM method) cited by the Blue Book.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ReferenceStandard">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ReferenceStandard</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An external standard referenced by the Blue Book (AASHTO, ASTM, PNS, etc.).</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#QualityParameter">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">QualityParameter</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A measurable property that is specified or tested (e.g. compressive strength, slump).</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#MeasurementUnit">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MeasurementUnit</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A unit of measurement. Kept separate from numeric values.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#QualityControlActivity">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">QualityControlActivity</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A QA/QC activity required by the specifications.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#SamplingActivity">
+  <rdfs:subClassOf rdf:resource="#QualityControlActivity"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SamplingActivity</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#InspectionActivity">
+  <rdfs:subClassOf rdf:resource="#QualityControlActivity"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InspectionActivity</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#TestingActivity">
+  <rdfs:subClassOf rdf:resource="#QualityControlActivity"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TestingActivity</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SubmittalActivity">
+  <rdfs:subClassOf rdf:resource="#QualityControlActivity"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SubmittalActivity</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Submission of certificates, test reports, or samples.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Requirement">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Requirement</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A normative statement from the Blue Book.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#MaterialRequirement">
+  <rdfs:subClassOf rdf:resource="#Requirement"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MaterialRequirement</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#WorkmanshipRequirement">
+  <rdfs:subClassOf rdf:resource="#Requirement"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WorkmanshipRequirement</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#TestingRequirement">
+  <rdfs:subClassOf rdf:resource="#Requirement"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TestingRequirement</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#QualityControlRequirement">
+  <rdfs:subClassOf rdf:resource="#Requirement"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">QualityControlRequirement</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#QualityAssuranceRequirement">
+  <rdfs:subClassOf rdf:resource="#Requirement"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">QualityAssuranceRequirement</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#QuantitativeLimit">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">QuantitativeLimit</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A numeric bound or exact value attached to a quality parameter.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#AcceptanceCriterion">
+  <rdfs:subClassOf rdf:resource="#QuantitativeLimit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AcceptanceCriterion</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A limit that a test result must satisfy for acceptance.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ToleranceValue">
+  <rdfs:subClassOf rdf:resource="#QuantitativeLimit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ToleranceValue</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An allowable deviation or tolerance.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#SpecificationLimit">
+  <rdfs:subClassOf rdf:resource="#QuantitativeLimit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SpecificationLimit</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A limit on a material or work property that is not an acceptance test (e.g. gradation band, thickness).</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#TestingFrequency">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TestingFrequency</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">How often sampling or testing is required (e.g. 1 test per 150 cu.m).</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ApplicabilityCondition">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ApplicabilityCondition</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A condition under which a requirement applies (class, grade, location, work type).</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#TestResult">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TestResult</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A submitted or measured result to be checked against a limit. Not Blue Book content.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#ComplianceOutcome">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ComplianceOutcome</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Verdict category assigned to a test result.</rdfs:comment>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#VolumeII_2013">
+  <rdf:type rdf:resource="#Volume"/>
+  <volumeNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string">II</volumeNumber>
+  <editionYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2013</editionYear>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DPWH Standard Specifications Volume II (2013)</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#VolumeIII_2019">
+  <rdf:type rdf:resource="#Volume"/>
+  <volumeNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string">III</volumeNumber>
+  <editionYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2019</editionYear>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DPWH Standard Specifications Volume III (2019)</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Highway">
+  <rdf:type rdf:resource="#PublicWorkType"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Highway</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Bridge">
+  <rdf:type rdf:resource="#PublicWorkType"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bridge</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Airport">
+  <rdf:type rdf:resource="#PublicWorkType"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Airport</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Building">
+  <rdf:type rdf:resource="#PublicWorkType"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Building</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#FloodControlAndDrainage">
+  <rdf:type rdf:resource="#PublicWorkType"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FloodControlAndDrainage</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Compliant">
+  <rdf:type rdf:resource="#ComplianceOutcome"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Compliant</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#NonCompliant">
+  <rdf:type rdf:resource="#ComplianceOutcome"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NonCompliant</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#InsufficientInformation">
+  <rdf:type rdf:resource="#ComplianceOutcome"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InsufficientInformation</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Volume"/>
+    <rdf:Description rdf:about="#BlueBookItem"/>
+    <rdf:Description rdf:about="#SubItem"/>
+    <rdf:Description rdf:about="#PublicWorkType"/>
+    <rdf:Description rdf:about="#ConstructionWork"/>
+    <rdf:Description rdf:about="#Material"/>
+    <rdf:Description rdf:about="#TestMethod"/>
+    <rdf:Description rdf:about="#ReferenceStandard"/>
+    <rdf:Description rdf:about="#QualityParameter"/>
+    <rdf:Description rdf:about="#MeasurementUnit"/>
+    <rdf:Description rdf:about="#QualityControlActivity"/>
+    <rdf:Description rdf:about="#Requirement"/>
+    <rdf:Description rdf:about="#QuantitativeLimit"/>
+    <rdf:Description rdf:about="#TestingFrequency"/>
+    <rdf:Description rdf:about="#ApplicabilityCondition"/>
+    <rdf:Description rdf:about="#TestResult"/>
+    <rdf:Description rdf:about="#ComplianceOutcome"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+
+</rdf:RDF>

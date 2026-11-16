@@ -1,0 +1,7 @@
+owlready2
+rdflib
+fastapi
+uvicorn
+httpx
+scipy
+jdk4py

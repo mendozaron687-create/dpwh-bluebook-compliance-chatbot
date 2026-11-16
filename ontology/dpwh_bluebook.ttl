@@ -1,0 +1,557 @@
+@prefix : <http://www.example.org/dpwh-bluebook#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.example.org/dpwh-bluebook> a owl:Ontology ;
+    rdfs:label "DPWH Blue Book Quality Compliance Ontology"^^xsd:string ;
+    rdfs:comment "Scope: DPWH Standard Specifications Vol. II (2013) and Vol. III (2019, buildings and flood control/drainage), covering QA/QC, materials, workmanship, and testing."^^xsd:string .
+
+:Admixture a owl:Class ;
+    rdfs:label "Admixture"^^xsd:string ;
+    rdfs:comment "Preliminary category."^^xsd:string ;
+    rdfs:subClassOf :Material .
+
+:Aggregate a owl:Class ;
+    rdfs:label "Aggregate"^^xsd:string ;
+    rdfs:comment "Preliminary category."^^xsd:string ;
+    rdfs:subClassOf :Material .
+
+:Airport a :PublicWorkType,
+        owl:NamedIndividual ;
+    rdfs:label "Airport"^^xsd:string .
+
+:BituminousMaterial a owl:Class ;
+    rdfs:label "BituminousMaterial"^^xsd:string ;
+    rdfs:comment "Preliminary category."^^xsd:string ;
+    rdfs:subClassOf :Material .
+
+:Bridge a :PublicWorkType,
+        owl:NamedIndividual ;
+    rdfs:label "Bridge"^^xsd:string .
+
+:Building a :PublicWorkType,
+        owl:NamedIndividual ;
+    rdfs:label "Building"^^xsd:string .
+
+:CementitiousMaterial a owl:Class ;
+    rdfs:label "CementitiousMaterial"^^xsd:string ;
+    rdfs:comment "Preliminary category: cement, fly ash, and similar."^^xsd:string ;
+    rdfs:subClassOf :Material .
+
+:Compliant a :ComplianceOutcome,
+        owl:NamedIndividual ;
+    rdfs:label "Compliant"^^xsd:string .
+
+:ConcreteMaterial a owl:Class ;
+    rdfs:label "ConcreteMaterial"^^xsd:string ;
+    rdfs:comment "Preliminary category."^^xsd:string ;
+    rdfs:subClassOf :Material .
+
+:FloodControlAndDrainage a :PublicWorkType,
+        owl:NamedIndividual ;
+    rdfs:label "FloodControlAndDrainage"^^xsd:string .
+
+:GeosyntheticMaterial a owl:Class ;
+    rdfs:label "GeosyntheticMaterial"^^xsd:string ;
+    rdfs:comment "Preliminary category."^^xsd:string ;
+    rdfs:subClassOf :Material .
+
+:Highway a :PublicWorkType,
+        owl:NamedIndividual ;
+    rdfs:label "Highway"^^xsd:string .
+
+:InspectionActivity a owl:Class ;
+    rdfs:label "InspectionActivity"^^xsd:string ;
+    rdfs:subClassOf :QualityControlActivity .
+
+:InsufficientInformation a :ComplianceOutcome,
+        owl:NamedIndividual ;
+    rdfs:label "InsufficientInformation"^^xsd:string .
+
+:MasonryMaterial a owl:Class ;
+    rdfs:label "MasonryMaterial"^^xsd:string ;
+    rdfs:comment "Preliminary category."^^xsd:string ;
+    rdfs:subClassOf :Material .
+
+:MaterialRequirement a owl:Class ;
+    rdfs:label "MaterialRequirement"^^xsd:string ;
+    rdfs:subClassOf :Requirement .
+
+:NonCompliant a :ComplianceOutcome,
+        owl:NamedIndividual ;
+    rdfs:label "NonCompliant"^^xsd:string .
+
+:PaintAndCoatingMaterial a owl:Class ;
+    rdfs:label "PaintAndCoatingMaterial"^^xsd:string ;
+    rdfs:comment "Preliminary category."^^xsd:string ;
+    rdfs:subClassOf :Material .
+
+:PipeAndDrainageMaterial a owl:Class ;
+    rdfs:label "PipeAndDrainageMaterial"^^xsd:string ;
+    rdfs:comment "Preliminary category."^^xsd:string ;
+    rdfs:subClassOf :Material .
+
+:QualityAssuranceRequirement a owl:Class ;
+    rdfs:label "QualityAssuranceRequirement"^^xsd:string ;
+    rdfs:subClassOf :Requirement .
+
+:QualityControlRequirement a owl:Class ;
+    rdfs:label "QualityControlRequirement"^^xsd:string ;
+    rdfs:subClassOf :Requirement .
+
+:SamplingActivity a owl:Class ;
+    rdfs:label "SamplingActivity"^^xsd:string ;
+    rdfs:subClassOf :QualityControlActivity .
+
+:SpecificationLimit a owl:Class ;
+    rdfs:label "SpecificationLimit"^^xsd:string ;
+    rdfs:comment "A limit on a material or work property that is not an acceptance test (e.g. gradation band, thickness)."^^xsd:string ;
+    rdfs:subClassOf :QuantitativeLimit .
+
+:SteelMaterial a owl:Class ;
+    rdfs:label "SteelMaterial"^^xsd:string ;
+    rdfs:comment "Preliminary category."^^xsd:string ;
+    rdfs:subClassOf :Material .
+
+:SubmittalActivity a owl:Class ;
+    rdfs:label "SubmittalActivity"^^xsd:string ;
+    rdfs:comment "Submission of certificates, test reports, or samples."^^xsd:string ;
+    rdfs:subClassOf :QualityControlActivity .
+
+:TestingActivity a owl:Class ;
+    rdfs:label "TestingActivity"^^xsd:string ;
+    rdfs:subClassOf :QualityControlActivity .
+
+:TestingRequirement a owl:Class ;
+    rdfs:label "TestingRequirement"^^xsd:string ;
+    rdfs:subClassOf :Requirement .
+
+:TimberMaterial a owl:Class ;
+    rdfs:label "TimberMaterial"^^xsd:string ;
+    rdfs:comment "Preliminary category."^^xsd:string ;
+    rdfs:subClassOf :Material .
+
+:VolumeIII_2019 a :Volume,
+        owl:NamedIndividual ;
+    rdfs:label "DPWH Standard Specifications Volume III (2019)"^^xsd:string ;
+    :editionYear 2019 ;
+    :volumeNumber "III"^^xsd:string .
+
+:VolumeII_2013 a :Volume,
+        owl:NamedIndividual ;
+    rdfs:label "DPWH Standard Specifications Volume II (2013)"^^xsd:string ;
+    :editionYear 2013 ;
+    :volumeNumber "II"^^xsd:string .
+
+:WorkmanshipRequirement a owl:Class ;
+    rdfs:label "WorkmanshipRequirement"^^xsd:string ;
+    rdfs:subClassOf :Requirement .
+
+:applicableClassOrGrade a owl:DatatypeProperty ;
+    rdfs:label "applicableClassOrGrade"^^xsd:string ;
+    rdfs:comment "Class, grade, or type, e.g. 'Class A'."^^xsd:string ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :ApplicabilityCondition :Requirement ) ] ;
+    rdfs:range xsd:string .
+
+:appliesToMaterial a owl:ObjectProperty ;
+    rdfs:label "appliesToMaterial"^^xsd:string ;
+    rdfs:comment "Material a requirement or test applies to."^^xsd:string ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Requirement :TestMethod ) ] ;
+    rdfs:range :Material .
+
+:appliesToWork a owl:ObjectProperty ;
+    rdfs:label "appliesToWork"^^xsd:string ;
+    rdfs:comment "Construction work a requirement applies to."^^xsd:string ;
+    rdfs:domain :Requirement ;
+    rdfs:range :ConstructionWork .
+
+:appliesToWorkType a owl:ObjectProperty ;
+    rdfs:label "appliesToWorkType"^^xsd:string ;
+    rdfs:comment "Public work type in which this applies."^^xsd:string ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Requirement :ConstructionWork ) ] ;
+    rdfs:range :PublicWorkType .
+
+:conditionText a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "conditionText"^^xsd:string ;
+    rdfs:comment "Condition as stated."^^xsd:string ;
+    rdfs:domain :ApplicabilityCondition ;
+    rdfs:range xsd:string .
+
+:crossReferencesItem a owl:ObjectProperty ;
+    rdfs:label "crossReferencesItem"^^xsd:string ;
+    rdfs:comment "Cross-reference to another Item."^^xsd:string ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Requirement :BlueBookItem ) ] ;
+    rdfs:range :BlueBookItem .
+
+:curingAgeDays a owl:DatatypeProperty ;
+    rdfs:label "curingAgeDays"^^xsd:string ;
+    rdfs:comment "Age in days at which a limit applies."^^xsd:string ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :QuantitativeLimit :Requirement ) ] ;
+    rdfs:range xsd:integer .
+
+:editionYear a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "editionYear"^^xsd:string ;
+    rdfs:comment "Edition year of the volume."^^xsd:string ;
+    rdfs:domain :Volume ;
+    rdfs:range xsd:integer .
+
+:evaluatesLimit a owl:ObjectProperty ;
+    rdfs:label "evaluatesLimit"^^xsd:string ;
+    rdfs:comment "Limit a result is checked against."^^xsd:string ;
+    rdfs:domain :TestResult ;
+    rdfs:range :QuantitativeLimit .
+
+:followsStandard a owl:ObjectProperty ;
+    rdfs:label "followsStandard"^^xsd:string ;
+    rdfs:comment "External standard followed."^^xsd:string ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :TestMethod :Material ) ] ;
+    rdfs:range :ReferenceStandard .
+
+:frequencyCount a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "frequencyCount"^^xsd:string ;
+    rdfs:comment "Number of tests or samples."^^xsd:string ;
+    rdfs:domain :TestingFrequency ;
+    rdfs:range xsd:integer .
+
+:frequencyQuantity a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "frequencyQuantity"^^xsd:string ;
+    rdfs:comment "Quantity of work covered per frequencyCount."^^xsd:string ;
+    rdfs:domain :TestingFrequency ;
+    rdfs:range xsd:decimal .
+
+:frequencyQuantityUnit a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "frequencyQuantityUnit"^^xsd:string ;
+    rdfs:comment "Unit of frequencyQuantity, e.g. 'cu.m'."^^xsd:string ;
+    rdfs:domain :TestingFrequency ;
+    rdfs:range xsd:string .
+
+:hasAcceptanceCriterion a owl:ObjectProperty ;
+    rdfs:label "hasAcceptanceCriterion"^^xsd:string ;
+    rdfs:comment "Acceptance criterion for a test or requirement."^^xsd:string ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :TestMethod :Requirement ) ] ;
+    rdfs:range :AcceptanceCriterion .
+
+:hasApplicableTestMethod a owl:ObjectProperty ;
+    rdfs:label "hasApplicableTestMethod"^^xsd:string ;
+    rdfs:comment "Test method applicable to a material."^^xsd:string ;
+    rdfs:domain :Material ;
+    rdfs:range :TestMethod .
+
+:hasComplianceOutcome a owl:ObjectProperty ;
+    rdfs:label "hasComplianceOutcome"^^xsd:string ;
+    rdfs:comment "Verdict for a result."^^xsd:string ;
+    rdfs:domain :TestResult ;
+    rdfs:range :ComplianceOutcome .
+
+:hasCondition a owl:ObjectProperty ;
+    rdfs:label "hasCondition"^^xsd:string ;
+    rdfs:comment "Condition under which this applies."^^xsd:string ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Requirement :QuantitativeLimit ) ] ;
+    rdfs:range :ApplicabilityCondition .
+
+:hasExactValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "hasExactValue"^^xsd:string ;
+    rdfs:comment "Required exact value."^^xsd:string ;
+    rdfs:domain :QuantitativeLimit ;
+    rdfs:range xsd:decimal .
+
+:hasLimit a owl:ObjectProperty ;
+    rdfs:label "hasLimit"^^xsd:string ;
+    rdfs:comment "Quantitative limit stated by a requirement."^^xsd:string ;
+    rdfs:domain :Requirement ;
+    rdfs:range :QuantitativeLimit .
+
+:hasMaximumValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "hasMaximumValue"^^xsd:string ;
+    rdfs:comment "Inclusive upper bound."^^xsd:string ;
+    rdfs:domain :QuantitativeLimit ;
+    rdfs:range xsd:decimal .
+
+:hasMinimumValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "hasMinimumValue"^^xsd:string ;
+    rdfs:comment "Inclusive lower bound."^^xsd:string ;
+    rdfs:domain :QuantitativeLimit ;
+    rdfs:range xsd:decimal .
+
+:hasSourceItem a owl:ObjectProperty ;
+    rdfs:label "hasSourceItem"^^xsd:string ;
+    rdfs:comment "Blue Book Item from which an encoded element was taken."^^xsd:string ;
+    rdfs:range :BlueBookItem .
+
+:hasSourceSubItem a owl:ObjectProperty ;
+    rdfs:label "hasSourceSubItem"^^xsd:string ;
+    rdfs:comment "Sub-item, paragraph, or table from which an encoded element was taken."^^xsd:string ;
+    rdfs:range :SubItem .
+
+:hasTestingFrequency a owl:ObjectProperty ;
+    rdfs:label "hasTestingFrequency"^^xsd:string ;
+    rdfs:comment "Required testing frequency."^^xsd:string ;
+    rdfs:domain :Requirement ;
+    rdfs:range :TestingFrequency .
+
+:hasTolerance a owl:ObjectProperty ;
+    rdfs:label "hasTolerance"^^xsd:string ;
+    rdfs:comment "Tolerance stated by a requirement."^^xsd:string ;
+    rdfs:domain :Requirement ;
+    rdfs:range :ToleranceValue .
+
+:hasUnit a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "hasUnit"^^xsd:string ;
+    rdfs:comment "Unit of measurement."^^xsd:string ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :QuantitativeLimit :TestResult :TestingFrequency ) ] ;
+    rdfs:range :MeasurementUnit .
+
+:itemNumber a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "itemNumber"^^xsd:string ;
+    rdfs:comment "Item number as printed, e.g. '311'."^^xsd:string ;
+    rdfs:domain :BlueBookItem ;
+    rdfs:range xsd:string .
+
+:itemTitle a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "itemTitle"^^xsd:string ;
+    rdfs:comment "Item title as printed."^^xsd:string ;
+    rdfs:domain :BlueBookItem ;
+    rdfs:range xsd:string .
+
+:limitIsExclusive a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "limitIsExclusive"^^xsd:string ;
+    rdfs:comment "True if the stated bounds are exclusive."^^xsd:string ;
+    rdfs:domain :QuantitativeLimit ;
+    rdfs:range xsd:boolean .
+
+:limitsParameter a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "limitsParameter"^^xsd:string ;
+    rdfs:comment "Parameter a limit constrains."^^xsd:string ;
+    rdfs:domain :QuantitativeLimit ;
+    rdfs:range :QualityParameter .
+
+:measuredValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "measuredValue"^^xsd:string ;
+    rdfs:comment "Measured value."^^xsd:string ;
+    rdfs:domain :TestResult ;
+    rdfs:range xsd:decimal .
+
+:measuresParameter a owl:ObjectProperty ;
+    rdfs:label "measuresParameter"^^xsd:string ;
+    rdfs:comment "Parameter measured by a test method."^^xsd:string ;
+    rdfs:domain :TestMethod ;
+    rdfs:range :QualityParameter .
+
+:normativeStrength a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "normativeStrength"^^xsd:string ;
+    rdfs:comment "'shall', 'should', or 'may' as stated in the source."^^xsd:string ;
+    rdfs:domain :Requirement ;
+    rdfs:range xsd:string .
+
+:parameterName a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "parameterName"^^xsd:string ;
+    rdfs:comment "Parameter name."^^xsd:string ;
+    rdfs:domain :QualityParameter ;
+    rdfs:range xsd:string .
+
+:requirementText a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "requirementText"^^xsd:string ;
+    rdfs:comment "Short statement of the requirement."^^xsd:string ;
+    rdfs:domain :Requirement ;
+    rdfs:range xsd:string .
+
+:requiresActivity a owl:ObjectProperty ;
+    rdfs:label "requiresActivity"^^xsd:string ;
+    rdfs:comment "QA/QC activity required."^^xsd:string ;
+    rdfs:domain :Requirement ;
+    rdfs:range :QualityControlActivity .
+
+:requiresTestMethod a owl:ObjectProperty ;
+    rdfs:label "requiresTestMethod"^^xsd:string ;
+    rdfs:comment "Test method required by a requirement."^^xsd:string ;
+    rdfs:domain :Requirement ;
+    rdfs:range :TestMethod .
+
+:sourcePage a owl:DatatypeProperty ;
+    rdfs:label "sourcePage"^^xsd:string ;
+    rdfs:comment "Page number in the source volume."^^xsd:string ;
+    rdfs:range xsd:integer .
+
+:standardDesignation a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "standardDesignation"^^xsd:string ;
+    rdfs:comment "Designation, e.g. 'AASHTO T 119'."^^xsd:string ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :TestMethod :ReferenceStandard ) ] ;
+    rdfs:range xsd:string .
+
+:subItemDesignation a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "subItemDesignation"^^xsd:string ;
+    rdfs:comment "Paragraph or table designation, e.g. '311.3.2'."^^xsd:string ;
+    rdfs:domain :SubItem ;
+    rdfs:range xsd:string .
+
+:unitSymbol a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "unitSymbol"^^xsd:string ;
+    rdfs:comment "Unit symbol, e.g. 'MPa'."^^xsd:string ;
+    rdfs:domain :MeasurementUnit ;
+    rdfs:range xsd:string .
+
+:verbatimText a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "verbatimText"^^xsd:string ;
+    rdfs:comment "Original wording from the Blue Book."^^xsd:string ;
+    rdfs:range xsd:string .
+
+:volumeNumber a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "volumeNumber"^^xsd:string ;
+    rdfs:comment "Roman numeral of the volume, e.g. 'II'."^^xsd:string ;
+    rdfs:domain :Volume ;
+    rdfs:range xsd:string .
+
+:AcceptanceCriterion a owl:Class ;
+    rdfs:label "AcceptanceCriterion"^^xsd:string ;
+    rdfs:comment "A limit that a test result must satisfy for acceptance."^^xsd:string ;
+    rdfs:subClassOf :QuantitativeLimit .
+
+:ToleranceValue a owl:Class ;
+    rdfs:label "ToleranceValue"^^xsd:string ;
+    rdfs:comment "An allowable deviation or tolerance."^^xsd:string ;
+    rdfs:subClassOf :QuantitativeLimit .
+
+:belongsToVolume a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "belongsToVolume"^^xsd:string ;
+    rdfs:comment "Volume containing the Item."^^xsd:string ;
+    rdfs:domain :BlueBookItem ;
+    rdfs:range :Volume .
+
+:isPartOfItem a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "isPartOfItem"^^xsd:string ;
+    rdfs:comment "Item containing the sub-item."^^xsd:string ;
+    rdfs:domain :SubItem ;
+    rdfs:range :BlueBookItem .
+
+:ConstructionWork a owl:Class ;
+    rdfs:label "ConstructionWork"^^xsd:string ;
+    rdfs:comment "A construction activity or work item governed by an Item (e.g. pavement, structural concrete)."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:MeasurementUnit a owl:Class ;
+    rdfs:label "MeasurementUnit"^^xsd:string ;
+    rdfs:comment "A unit of measurement. Kept separate from numeric values."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:ReferenceStandard a owl:Class ;
+    rdfs:label "ReferenceStandard"^^xsd:string ;
+    rdfs:comment "An external standard referenced by the Blue Book (AASHTO, ASTM, PNS, etc.)."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:ApplicabilityCondition a owl:Class ;
+    rdfs:label "ApplicabilityCondition"^^xsd:string ;
+    rdfs:comment "A condition under which a requirement applies (class, grade, location, work type)."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:QualityParameter a owl:Class ;
+    rdfs:label "QualityParameter"^^xsd:string ;
+    rdfs:comment "A measurable property that is specified or tested (e.g. compressive strength, slump)."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:SubItem a owl:Class ;
+    rdfs:label "SubItem"^^xsd:string ;
+    rdfs:comment "A sub-item, paragraph, or table of a Blue Book Item, used as the finest source locator."^^xsd:string ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :BlueBookItem ;
+            owl:onProperty :isPartOfItem ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        owl:Thing .
+
+:ComplianceOutcome a owl:Class ;
+    rdfs:label "ComplianceOutcome"^^xsd:string ;
+    rdfs:comment "Verdict category assigned to a test result."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:TestResult a owl:Class ;
+    rdfs:label "TestResult"^^xsd:string ;
+    rdfs:comment "A submitted or measured result to be checked against a limit. Not Blue Book content."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:QualityControlActivity a owl:Class ;
+    rdfs:label "QualityControlActivity"^^xsd:string ;
+    rdfs:comment "A QA/QC activity required by the specifications."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:TestingFrequency a owl:Class ;
+    rdfs:label "TestingFrequency"^^xsd:string ;
+    rdfs:comment "How often sampling or testing is required (e.g. 1 test per 150 cu.m)."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:PublicWorkType a owl:Class ;
+    rdfs:label "PublicWorkType"^^xsd:string ;
+    rdfs:comment "Type of public works covered by the study."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:Volume a owl:Class ;
+    rdfs:label "Volume"^^xsd:string ;
+    rdfs:comment "A volume of the DPWH Standard Specifications. Carries the edition year."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:TestMethod a owl:Class ;
+    rdfs:label "TestMethod"^^xsd:string ;
+    rdfs:comment "A sampling or testing procedure (e.g. an AASHTO or ASTM method) cited by the Blue Book."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:BlueBookItem a owl:Class ;
+    rdfs:label "BlueBookItem"^^xsd:string ;
+    rdfs:comment "A numbered Item of the Blue Book (e.g. 'Item 311')."^^xsd:string ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :Volume ;
+            owl:onProperty :belongsToVolume ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        owl:Thing .
+
+:QuantitativeLimit a owl:Class ;
+    rdfs:label "QuantitativeLimit"^^xsd:string ;
+    rdfs:comment "A numeric bound or exact value attached to a quality parameter."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:Material a owl:Class ;
+    rdfs:label "Material"^^xsd:string ;
+    rdfs:comment "A construction material whose quality is specified. Subclasses are preliminary and are refined after document analysis."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:Requirement a owl:Class ;
+    rdfs:label "Requirement"^^xsd:string ;
+    rdfs:comment "A normative statement from the Blue Book."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :Volume :BlueBookItem :SubItem :PublicWorkType :ConstructionWork :Material :TestMethod :ReferenceStandard :QualityParameter :MeasurementUnit :QualityControlActivity :Requirement :QuantitativeLimit :TestingFrequency :ApplicabilityCondition :TestResult :ComplianceOutcome ) .
+

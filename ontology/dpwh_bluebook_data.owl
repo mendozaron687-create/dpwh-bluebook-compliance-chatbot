@@ -1,0 +1,1031 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.example.org/dpwh-bluebook-data"
+         xmlns="http://www.example.org/dpwh-bluebook-data#"
+         xmlns:dpwh="http://www.example.org/dpwh-bluebook#">
+
+<owl:Ontology rdf:about="http://www.example.org/dpwh-bluebook-data">
+  <owl:imports rdf:resource="http://www.example.org/dpwh-bluebook"/>
+</owl:Ontology>
+
+<owl:NamedIndividual rdf:about="#Item_311_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+  <dpwh:belongsToVolume rdf:resource="http://www.example.org/dpwh-bluebook#VolumeII_2013"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item 311</rdfs:label>
+  <dpwh:itemNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string">311</dpwh:itemNumber>
+  <dpwh:itemTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Portland Cement Concrete Pavement</dpwh:itemTitle>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_311_2_1_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_311_VolII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">311.2.1</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">311.2.1</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_001">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MaterialRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_311_VolII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_311_2_1_VolII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Highway"/>
+  <dpwh:appliesToMaterial rdf:resource="#Portland_Cement_Concrete_Pavement"/>
+  <dpwh:hasLimit rdf:resource="#TMP_001_limit"/>
+  <dpwh:hasAcceptanceCriterion rdf:resource="#TMP_001_limit"/>
+  <dpwh:requiresTestMethod rdf:resource="#Flexural_Strength_Test_AASHTO_T_97"/>
+  <dpwh:hasTestingFrequency rdf:resource="#TMP_001_frequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-001</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Concrete pavement shall have a flexural strength of not less than 4.5 MPa at 14 days.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Concrete pavement shall have a flexural strength of not less than 4.5 MPa at 14 days.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</dpwh:sourcePage>
+  <dpwh:curingAgeDays rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</dpwh:curingAgeDays>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Portland_Cement_Concrete_Pavement">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#Material"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#Flexural_Strength_Test_AASHTO_T_97"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#Core_Thickness_Measurement_AASHTO_T_148"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Portland Cement Concrete Pavement</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">concrete pavement</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PCCP</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#flexural_strength">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">flexural strength</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">flexural</rdfs:label>
+  <dpwh:parameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">flexural strength</dpwh:parameterName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#unit_MPa">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MeasurementUnit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MPa</rdfs:label>
+  <dpwh:unitSymbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MPa</dpwh:unitSymbol>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_001_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+  <dpwh:limitsParameter rdf:resource="#flexural_strength"/>
+  <dpwh:hasUnit rdf:resource="#unit_MPa"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-001</rdfs:label>
+  <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</dpwh:hasMinimumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Flexural_Strength_Test_AASHTO_T_97">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestMethod"/>
+  <dpwh:followsStandard rdf:resource="#AASHTO_T_97"/>
+  <dpwh:measuresParameter rdf:resource="#flexural_strength"/>
+  <dpwh:appliesToMaterial rdf:resource="#Portland_Cement_Concrete_Pavement"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Flexural Strength Test</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 97</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AASHTO_T_97">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 97</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 97</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_001_frequency">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 per 330 sq.m</rdfs:label>
+  <dpwh:frequencyCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</dpwh:frequencyCount>
+  <dpwh:frequencyQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">330.0</dpwh:frequencyQuantity>
+  <dpwh:frequencyQuantityUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sq.m</dpwh:frequencyQuantityUnit>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_311_4_3_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_311_VolII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">311.4.3</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">311.4.3</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_002">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#WorkmanshipRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_311_VolII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_311_4_3_VolII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Highway"/>
+  <dpwh:appliesToMaterial rdf:resource="#Portland_Cement_Concrete_Pavement"/>
+  <dpwh:hasLimit rdf:resource="#TMP_002_limit"/>
+  <dpwh:hasTolerance rdf:resource="#TMP_002_limit"/>
+  <dpwh:requiresTestMethod rdf:resource="#Core_Thickness_Measurement_AASHTO_T_148"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-002</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The thickness of concrete pavement shall not deviate from the plan thickness by more than 5 mm.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The thickness of concrete pavement shall not deviate from the plan thickness by more than 5 mm.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</dpwh:sourcePage>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#thickness_deviation">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">thickness deviation</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">thickness</rdfs:label>
+  <dpwh:parameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">thickness deviation</dpwh:parameterName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#unit_mm">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MeasurementUnit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mm</rdfs:label>
+  <dpwh:unitSymbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mm</dpwh:unitSymbol>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_002_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#ToleranceValue"/>
+  <dpwh:limitsParameter rdf:resource="#thickness_deviation"/>
+  <dpwh:hasUnit rdf:resource="#unit_mm"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-002</rdfs:label>
+  <dpwh:hasMaximumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</dpwh:hasMaximumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Core_Thickness_Measurement_AASHTO_T_148">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestMethod"/>
+  <dpwh:followsStandard rdf:resource="#AASHTO_T_148"/>
+  <dpwh:measuresParameter rdf:resource="#thickness_deviation"/>
+  <dpwh:appliesToMaterial rdf:resource="#Portland_Cement_Concrete_Pavement"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Core Thickness Measurement</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 148</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AASHTO_T_148">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 148</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 148</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Item_405_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+  <dpwh:belongsToVolume rdf:resource="http://www.example.org/dpwh-bluebook#VolumeII_2013"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item 405</rdfs:label>
+  <dpwh:itemNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string">405</dpwh:itemNumber>
+  <dpwh:itemTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Structural Concrete</dpwh:itemTitle>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_405_2_1_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_405_VolII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">405.2.1</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">405.2.1</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_003">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MaterialRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_405_VolII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_405_2_1_VolII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Bridge"/>
+  <dpwh:appliesToMaterial rdf:resource="#Structural_Concrete_Class_A"/>
+  <dpwh:hasLimit rdf:resource="#TMP_003_limit"/>
+  <dpwh:hasAcceptanceCriterion rdf:resource="#TMP_003_limit"/>
+  <dpwh:requiresTestMethod rdf:resource="#Compressive_Strength_Test_of_Concrete_Cylinders_AASHTO_T_22"/>
+  <dpwh:hasTestingFrequency rdf:resource="#TMP_003_frequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-003</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A structural concrete shall have a compressive strength of not less than 20.7 MPa at 28 days.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A structural concrete shall have a compressive strength of not less than 20.7 MPa at 28 days.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</dpwh:sourcePage>
+  <dpwh:curingAgeDays rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</dpwh:curingAgeDays>
+  <dpwh:applicableClassOrGrade rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A</dpwh:applicableClassOrGrade>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Structural_Concrete_Class_A">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#Material"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#Compressive_Strength_Test_of_Concrete_Cylinders_AASHTO_T_22"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#Slump_Test_AASHTO_T_119"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#Compressive_Strength_Test_of_Concrete_Cylinders_ASTM_C39"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Structural Concrete Class A</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A concrete</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">structural concrete</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#compressive_strength">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">compressive strength</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strength</rdfs:label>
+  <dpwh:parameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">compressive strength</dpwh:parameterName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_003_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+  <dpwh:limitsParameter rdf:resource="#compressive_strength"/>
+  <dpwh:hasUnit rdf:resource="#unit_MPa"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-003</rdfs:label>
+  <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.7</dpwh:hasMinimumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Compressive_Strength_Test_of_Concrete_Cylinders_AASHTO_T_22">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestMethod"/>
+  <dpwh:followsStandard rdf:resource="#AASHTO_T_22"/>
+  <dpwh:measuresParameter rdf:resource="#compressive_strength"/>
+  <dpwh:appliesToMaterial rdf:resource="#Structural_Concrete_Class_A"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Compressive Strength Test of Concrete Cylinders</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 22</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AASHTO_T_22">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 22</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 22</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_003_frequency">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 per 75 cu.m</rdfs:label>
+  <dpwh:frequencyCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</dpwh:frequencyCount>
+  <dpwh:frequencyQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">75.0</dpwh:frequencyQuantity>
+  <dpwh:frequencyQuantityUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cu.m</dpwh:frequencyQuantityUnit>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_405_2_2_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_405_VolII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">405.2.2</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">405.2.2</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_004">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MaterialRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_405_VolII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_405_2_2_VolII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Bridge"/>
+  <dpwh:appliesToMaterial rdf:resource="#Structural_Concrete_Class_A"/>
+  <dpwh:hasLimit rdf:resource="#TMP_004_limit"/>
+  <dpwh:requiresTestMethod rdf:resource="#Slump_Test_AASHTO_T_119"/>
+  <dpwh:hasTestingFrequency rdf:resource="#TMP_004_frequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-004</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A structural concrete shall have a slump of not more than 75 mm.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A structural concrete shall have a slump of not more than 75 mm.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</dpwh:sourcePage>
+  <dpwh:applicableClassOrGrade rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A</dpwh:applicableClassOrGrade>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#slump">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">slump</rdfs:label>
+  <dpwh:parameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">slump</dpwh:parameterName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_004_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SpecificationLimit"/>
+  <dpwh:limitsParameter rdf:resource="#slump"/>
+  <dpwh:hasUnit rdf:resource="#unit_mm"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-004</rdfs:label>
+  <dpwh:hasMaximumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">75.0</dpwh:hasMaximumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Slump_Test_AASHTO_T_119">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestMethod"/>
+  <dpwh:followsStandard rdf:resource="#AASHTO_T_119"/>
+  <dpwh:measuresParameter rdf:resource="#slump"/>
+  <dpwh:appliesToMaterial rdf:resource="#Structural_Concrete_Class_A"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Slump Test</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 119</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AASHTO_T_119">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 119</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 119</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_004_frequency">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 per 75 cu.m</rdfs:label>
+  <dpwh:frequencyCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</dpwh:frequencyCount>
+  <dpwh:frequencyQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">75.0</dpwh:frequencyQuantity>
+  <dpwh:frequencyQuantityUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cu.m</dpwh:frequencyQuantityUnit>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_405_2_3_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_405_VolII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">405.2.3</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">405.2.3</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_005">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MaterialRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_405_VolII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_405_2_3_VolII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Bridge"/>
+  <dpwh:appliesToMaterial rdf:resource="#Structural_Concrete_Class_A"/>
+  <dpwh:hasLimit rdf:resource="#TMP_005_limit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-005</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A structural concrete shall contain not less than 9 bags of cement per cubic meter.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A structural concrete shall contain not less than 9 bags of cement per cubic meter.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</dpwh:sourcePage>
+  <dpwh:applicableClassOrGrade rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A</dpwh:applicableClassOrGrade>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#cement_content">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cement content</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cement</rdfs:label>
+  <dpwh:parameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cement content</dpwh:parameterName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#unit_bags_cu_m">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MeasurementUnit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bags/cu.m</rdfs:label>
+  <dpwh:unitSymbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bags/cu.m</dpwh:unitSymbol>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_005_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SpecificationLimit"/>
+  <dpwh:limitsParameter rdf:resource="#cement_content"/>
+  <dpwh:hasUnit rdf:resource="#unit_bags_cu_m"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-005</rdfs:label>
+  <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</dpwh:hasMinimumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_405_3_4_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_405_VolII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">405.3.4</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">405.3.4</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_006">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#WorkmanshipRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_405_VolII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_405_3_4_VolII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Bridge"/>
+  <dpwh:appliesToMaterial rdf:resource="#Structural_Concrete_Class_A"/>
+  <dpwh:hasLimit rdf:resource="#TMP_006_limit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-006</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Concrete shall be cured for not less than 7 days after placing.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Concrete shall be cured for not less than 7 days after placing.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</dpwh:sourcePage>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#curing_period">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">curing period</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">curing</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cure</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cured</rdfs:label>
+  <dpwh:parameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">curing period</dpwh:parameterName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#unit_days">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MeasurementUnit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">days</rdfs:label>
+  <dpwh:unitSymbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string">days</dpwh:unitSymbol>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_006_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SpecificationLimit"/>
+  <dpwh:limitsParameter rdf:resource="#curing_period"/>
+  <dpwh:hasUnit rdf:resource="#unit_days"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-006</rdfs:label>
+  <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.0</dpwh:hasMinimumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Item_200_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+  <dpwh:belongsToVolume rdf:resource="http://www.example.org/dpwh-bluebook#VolumeII_2013"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item 200</rdfs:label>
+  <dpwh:itemNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string">200</dpwh:itemNumber>
+  <dpwh:itemTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregate Subbase Course</dpwh:itemTitle>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_200_2_1_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_200_VolII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">200.2.1</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">200.2.1</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_007">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MaterialRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_200_VolII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_200_2_1_VolII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Highway"/>
+  <dpwh:appliesToMaterial rdf:resource="#Aggregate_Subbase_Course"/>
+  <dpwh:hasLimit rdf:resource="#TMP_007_limit"/>
+  <dpwh:hasAcceptanceCriterion rdf:resource="#TMP_007_limit"/>
+  <dpwh:requiresTestMethod rdf:resource="#CBR_Test_AASHTO_T_193"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-007</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregate subbase course material shall have a soaked CBR of not less than 25 percent.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregate subbase course material shall have a soaked CBR of not less than 25 percent.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</dpwh:sourcePage>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Aggregate_Subbase_Course">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#Material"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#CBR_Test_AASHTO_T_193"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#Field_Density_Test_AASHTO_T_191"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregate Subbase Course</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">subbase course</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">subbase</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#CBR">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CBR</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">California Bearing Ratio</rdfs:label>
+  <dpwh:parameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CBR</dpwh:parameterName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#unit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MeasurementUnit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">%</rdfs:label>
+  <dpwh:unitSymbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string">%</dpwh:unitSymbol>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_007_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+  <dpwh:limitsParameter rdf:resource="#CBR"/>
+  <dpwh:hasUnit rdf:resource="#unit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-007</rdfs:label>
+  <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25.0</dpwh:hasMinimumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#CBR_Test_AASHTO_T_193">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestMethod"/>
+  <dpwh:followsStandard rdf:resource="#AASHTO_T_193"/>
+  <dpwh:measuresParameter rdf:resource="#CBR"/>
+  <dpwh:appliesToMaterial rdf:resource="#Aggregate_Base_Course"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CBR Test</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 193</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AASHTO_T_193">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 193</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 193</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_200_3_5_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_200_VolII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">200.3.5</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">200.3.5</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_008">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#WorkmanshipRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_200_VolII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_200_3_5_VolII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Highway"/>
+  <dpwh:appliesToMaterial rdf:resource="#Aggregate_Subbase_Course"/>
+  <dpwh:hasLimit rdf:resource="#TMP_008_limit"/>
+  <dpwh:hasAcceptanceCriterion rdf:resource="#TMP_008_limit"/>
+  <dpwh:requiresTestMethod rdf:resource="#Field_Density_Test_AASHTO_T_191"/>
+  <dpwh:hasTestingFrequency rdf:resource="#TMP_008_frequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-008</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Each layer of aggregate subbase shall be compacted to a field density of at least 100 percent of the maximum dry density.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Each layer of aggregate subbase shall be compacted to a field density of at least 100 percent of the maximum dry density.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</dpwh:sourcePage>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#field_density">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">field density</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">density</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">compaction</rdfs:label>
+  <dpwh:parameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">field density</dpwh:parameterName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_008_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+  <dpwh:limitsParameter rdf:resource="#field_density"/>
+  <dpwh:hasUnit rdf:resource="#unit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-008</rdfs:label>
+  <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">100.0</dpwh:hasMinimumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Field_Density_Test_AASHTO_T_191">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestMethod"/>
+  <dpwh:followsStandard rdf:resource="#AASHTO_T_191"/>
+  <dpwh:measuresParameter rdf:resource="#field_density"/>
+  <dpwh:appliesToMaterial rdf:resource="#Aggregate_Subbase_Course"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Field Density Test</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 191</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AASHTO_T_191">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 191</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 191</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_008_frequency">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 per 150 sq.m</rdfs:label>
+  <dpwh:frequencyCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</dpwh:frequencyCount>
+  <dpwh:frequencyQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">150.0</dpwh:frequencyQuantity>
+  <dpwh:frequencyQuantityUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sq.m</dpwh:frequencyQuantityUnit>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Item_201_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+  <dpwh:belongsToVolume rdf:resource="http://www.example.org/dpwh-bluebook#VolumeII_2013"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item 201</rdfs:label>
+  <dpwh:itemNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string">201</dpwh:itemNumber>
+  <dpwh:itemTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregate Base Course</dpwh:itemTitle>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_201_2_1_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_201_VolII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">201.2.1</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">201.2.1</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_009">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MaterialRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_201_VolII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_201_2_1_VolII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Highway"/>
+  <dpwh:appliesToMaterial rdf:resource="#Aggregate_Base_Course"/>
+  <dpwh:hasLimit rdf:resource="#TMP_009_limit"/>
+  <dpwh:hasAcceptanceCriterion rdf:resource="#TMP_009_limit"/>
+  <dpwh:requiresTestMethod rdf:resource="#CBR_Test_AASHTO_T_193"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-009</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregate base course material shall have a soaked CBR of not less than 80 percent.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregate base course material shall have a soaked CBR of not less than 80 percent.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</dpwh:sourcePage>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Aggregate_Base_Course">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#Material"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#CBR_Test_AASHTO_T_193"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aggregate Base Course</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">base course</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_009_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+  <dpwh:limitsParameter rdf:resource="#CBR"/>
+  <dpwh:hasUnit rdf:resource="#unit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-009</rdfs:label>
+  <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">80.0</dpwh:hasMinimumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Item_310_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+  <dpwh:belongsToVolume rdf:resource="http://www.example.org/dpwh-bluebook#VolumeII_2013"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item 310</rdfs:label>
+  <dpwh:itemNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string">310</dpwh:itemNumber>
+  <dpwh:itemTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bituminous Concrete Surface Course</dpwh:itemTitle>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_310_3_8_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_310_VolII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">310.3.8</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">310.3.8</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_010">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#WorkmanshipRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_310_VolII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_310_3_8_VolII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Highway"/>
+  <dpwh:appliesToMaterial rdf:resource="#Bituminous_Concrete_Surface_Course"/>
+  <dpwh:hasLimit rdf:resource="#TMP_010_limit"/>
+  <dpwh:hasAcceptanceCriterion rdf:resource="#TMP_010_limit"/>
+  <dpwh:requiresTestMethod rdf:resource="#Core_Density_Test_AASHTO_T_166"/>
+  <dpwh:hasTestingFrequency rdf:resource="#TMP_010_frequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-010</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The compacted bituminous mixture shall have a density of not less than 97 percent of the laboratory density.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The compacted bituminous mixture shall have a density of not less than 97 percent of the laboratory density.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</dpwh:sourcePage>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Bituminous_Concrete_Surface_Course">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#Material"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#Core_Density_Test_AASHTO_T_166"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bituminous Concrete Surface Course</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">asphalt</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bituminous surface course</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">asphalt surface course</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#density">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">density</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">compaction</rdfs:label>
+  <dpwh:parameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">density</dpwh:parameterName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_010_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+  <dpwh:limitsParameter rdf:resource="#density"/>
+  <dpwh:hasUnit rdf:resource="#unit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-010</rdfs:label>
+  <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">97.0</dpwh:hasMinimumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Core_Density_Test_AASHTO_T_166">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestMethod"/>
+  <dpwh:followsStandard rdf:resource="#AASHTO_T_166"/>
+  <dpwh:measuresParameter rdf:resource="#density"/>
+  <dpwh:appliesToMaterial rdf:resource="#Bituminous_Concrete_Surface_Course"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Core Density Test</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 166</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AASHTO_T_166">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 166</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 166</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_010_frequency">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 per 100 sq.m</rdfs:label>
+  <dpwh:frequencyCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</dpwh:frequencyCount>
+  <dpwh:frequencyQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">100.0</dpwh:frequencyQuantity>
+  <dpwh:frequencyQuantityUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sq.m</dpwh:frequencyQuantityUnit>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Item_404_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+  <dpwh:belongsToVolume rdf:resource="http://www.example.org/dpwh-bluebook#VolumeII_2013"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item 404</rdfs:label>
+  <dpwh:itemNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string">404</dpwh:itemNumber>
+  <dpwh:itemTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reinforcing Steel</dpwh:itemTitle>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_404_2_1_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_404_VolII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">404.2.1</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">404.2.1</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_011">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MaterialRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_404_VolII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_404_2_1_VolII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Bridge"/>
+  <dpwh:appliesToMaterial rdf:resource="#Reinforcing_Steel_Grade_40"/>
+  <dpwh:hasLimit rdf:resource="#TMP_011_limit"/>
+  <dpwh:hasAcceptanceCriterion rdf:resource="#TMP_011_limit"/>
+  <dpwh:requiresTestMethod rdf:resource="#Tensile_Test_AASHTO_T_244"/>
+  <dpwh:hasTestingFrequency rdf:resource="#TMP_011_frequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-011</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grade 40 deformed reinforcing steel bars shall have a yield strength of not less than 275 MPa.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grade 40 deformed reinforcing steel bars shall have a yield strength of not less than 275 MPa.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</dpwh:sourcePage>
+  <dpwh:applicableClassOrGrade rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grade 40</dpwh:applicableClassOrGrade>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Reinforcing_Steel_Grade_40">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#Material"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#Tensile_Test_AASHTO_T_244"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reinforcing Steel Grade 40</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grade 40 reinforcing steel</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rebar</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reinforcing steel</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#yield_strength">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">yield strength</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">yield</rdfs:label>
+  <dpwh:parameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">yield strength</dpwh:parameterName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_011_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+  <dpwh:limitsParameter rdf:resource="#yield_strength"/>
+  <dpwh:hasUnit rdf:resource="#unit_MPa"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-011</rdfs:label>
+  <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">275.0</dpwh:hasMinimumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Tensile_Test_AASHTO_T_244">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestMethod"/>
+  <dpwh:followsStandard rdf:resource="#AASHTO_T_244"/>
+  <dpwh:measuresParameter rdf:resource="#yield_strength"/>
+  <dpwh:appliesToMaterial rdf:resource="#Reinforcing_Steel_Grade_40"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tensile Test</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 244</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AASHTO_T_244">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 244</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AASHTO T 244</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_011_frequency">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 per 10 tons</rdfs:label>
+  <dpwh:frequencyCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</dpwh:frequencyCount>
+  <dpwh:frequencyQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10.0</dpwh:frequencyQuantity>
+  <dpwh:frequencyQuantityUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tons</dpwh:frequencyQuantityUnit>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_404_2_4_VolII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_404_VolII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">404.2.4</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">404.2.4</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_012">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityControlRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_404_VolII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_404_2_4_VolII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Bridge"/>
+  <dpwh:appliesToMaterial rdf:resource="#Reinforcing_Steel_Grade_40"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-012</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Contractor shall submit the manufacturer's mill certificate for each shipment of reinforcing steel before use.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Contractor shall submit the manufacturer's mill certificate for each shipment of reinforcing steel before use.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</dpwh:sourcePage>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER requirement - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Item_1_VolIII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+  <dpwh:belongsToVolume rdf:resource="http://www.example.org/dpwh-bluebook#VolumeIII_2019"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item 1</rdfs:label>
+  <dpwh:itemNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</dpwh:itemNumber>
+  <dpwh:itemTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Concrete for Buildings</dpwh:itemTitle>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_1_2_1_VolIII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_1_VolIII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.2.1</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.2.1</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_013">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MaterialRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_1_VolIII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_1_2_1_VolIII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Building"/>
+  <dpwh:appliesToMaterial rdf:resource="#Structural_Concrete_Class_A"/>
+  <dpwh:hasLimit rdf:resource="#TMP_013_limit"/>
+  <dpwh:hasAcceptanceCriterion rdf:resource="#TMP_013_limit"/>
+  <dpwh:requiresTestMethod rdf:resource="#Compressive_Strength_Test_of_Concrete_Cylinders_ASTM_C39"/>
+  <dpwh:hasTestingFrequency rdf:resource="#TMP_013_frequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-013</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A structural concrete for buildings shall have a compressive strength of not less than 21 MPa at 28 days.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A structural concrete for buildings shall have a compressive strength of not less than 21 MPa at 28 days.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</dpwh:sourcePage>
+  <dpwh:curingAgeDays rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</dpwh:curingAgeDays>
+  <dpwh:applicableClassOrGrade rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Class A</dpwh:applicableClassOrGrade>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - edition difference chosen on purpose to test volume handling</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_013_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+  <dpwh:limitsParameter rdf:resource="#compressive_strength"/>
+  <dpwh:hasUnit rdf:resource="#unit_MPa"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-013</rdfs:label>
+  <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">21.0</dpwh:hasMinimumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Compressive_Strength_Test_of_Concrete_Cylinders_ASTM_C39">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestMethod"/>
+  <dpwh:followsStandard rdf:resource="#ASTM_C39"/>
+  <dpwh:measuresParameter rdf:resource="#compressive_strength"/>
+  <dpwh:appliesToMaterial rdf:resource="#Structural_Concrete_Class_A"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Compressive Strength Test of Concrete Cylinders</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASTM C39</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ASTM_C39">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASTM C39</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASTM C39</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_013_frequency">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 per 75 cu.m</rdfs:label>
+  <dpwh:frequencyCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</dpwh:frequencyCount>
+  <dpwh:frequencyQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">75.0</dpwh:frequencyQuantity>
+  <dpwh:frequencyQuantityUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cu.m</dpwh:frequencyQuantityUnit>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Item_2_VolIII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+  <dpwh:belongsToVolume rdf:resource="http://www.example.org/dpwh-bluebook#VolumeIII_2019"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item 2</rdfs:label>
+  <dpwh:itemNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</dpwh:itemNumber>
+  <dpwh:itemTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Concrete Hollow Blocks</dpwh:itemTitle>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_2_2_1_VolIII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_2_VolIII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2.2.1</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2.2.1</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_014">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MaterialRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_2_VolIII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_2_2_1_VolIII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#Building"/>
+  <dpwh:appliesToMaterial rdf:resource="#Concrete_Hollow_Blocks"/>
+  <dpwh:hasLimit rdf:resource="#TMP_014_limit"/>
+  <dpwh:hasAcceptanceCriterion rdf:resource="#TMP_014_limit"/>
+  <dpwh:requiresTestMethod rdf:resource="#Block_Compressive_Strength_Test_ASTM_C140"/>
+  <dpwh:hasTestingFrequency rdf:resource="#TMP_014_frequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-014</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Load-bearing concrete hollow blocks shall have an average compressive strength of not less than 4.14 MPa.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Load-bearing concrete hollow blocks shall have an average compressive strength of not less than 4.14 MPa.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</dpwh:sourcePage>
+  <dpwh:applicableClassOrGrade rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Load-bearing</dpwh:applicableClassOrGrade>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Concrete_Hollow_Blocks">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#Material"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#Block_Compressive_Strength_Test_ASTM_C140"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Concrete Hollow Blocks</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hollow blocks</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHB</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_014_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#AcceptanceCriterion"/>
+  <dpwh:limitsParameter rdf:resource="#compressive_strength"/>
+  <dpwh:hasUnit rdf:resource="#unit_MPa"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-014</rdfs:label>
+  <dpwh:hasMinimumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.14</dpwh:hasMinimumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Block_Compressive_Strength_Test_ASTM_C140">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestMethod"/>
+  <dpwh:followsStandard rdf:resource="#ASTM_C140"/>
+  <dpwh:measuresParameter rdf:resource="#compressive_strength"/>
+  <dpwh:appliesToMaterial rdf:resource="#Concrete_Hollow_Blocks"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Block Compressive Strength Test</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASTM C140</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ASTM_C140">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASTM C140</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASTM C140</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_014_frequency">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 per 10000 pieces</rdfs:label>
+  <dpwh:frequencyCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</dpwh:frequencyCount>
+  <dpwh:frequencyQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10000.0</dpwh:frequencyQuantity>
+  <dpwh:frequencyQuantityUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pieces</dpwh:frequencyQuantityUnit>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Item_3_VolIII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#BlueBookItem"/>
+  <dpwh:belongsToVolume rdf:resource="http://www.example.org/dpwh-bluebook#VolumeIII_2019"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Item 3</rdfs:label>
+  <dpwh:itemNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3</dpwh:itemNumber>
+  <dpwh:itemTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reinforced Concrete Pipe</dpwh:itemTitle>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_3_2_1_VolIII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_3_VolIII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3.2.1</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3.2.1</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_015">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MaterialRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_3_VolIII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_3_2_1_VolIII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#FloodControlAndDrainage"/>
+  <dpwh:appliesToMaterial rdf:resource="#Reinforced_Concrete_Pipe"/>
+  <dpwh:requiresTestMethod rdf:resource="#Three_Edge_Bearing_Test_ASTM_C497"/>
+  <dpwh:hasTestingFrequency rdf:resource="#TMP_015_frequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-015</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reinforced concrete pipe for drainage shall have a three-edge bearing strength meeting the D-load of its class.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reinforced concrete pipe for drainage shall have a three-edge bearing strength meeting the D-load of its class.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</dpwh:sourcePage>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER requirement - no numeric limit</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Reinforced_Concrete_Pipe">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#Material"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#Three_Edge_Bearing_Test_ASTM_C497"/>
+  <dpwh:hasApplicableTestMethod rdf:resource="#Absorption_Test_ASTM_C497"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reinforced Concrete Pipe</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">concrete pipe</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RCP</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#three_edge_bearing_strength">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">three-edge bearing strength</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bearing strength</rdfs:label>
+  <dpwh:parameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">three-edge bearing strength</dpwh:parameterName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Three_Edge_Bearing_Test_ASTM_C497">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestMethod"/>
+  <dpwh:followsStandard rdf:resource="#ASTM_C497"/>
+  <dpwh:measuresParameter rdf:resource="#three_edge_bearing_strength"/>
+  <dpwh:appliesToMaterial rdf:resource="#Reinforced_Concrete_Pipe"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Three-Edge Bearing Test</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASTM C497</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ASTM_C497">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#ReferenceStandard"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASTM C497</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASTM C497</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_015_frequency">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 per 100 pieces</rdfs:label>
+  <dpwh:frequencyCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</dpwh:frequencyCount>
+  <dpwh:frequencyQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">100.0</dpwh:frequencyQuantity>
+  <dpwh:frequencyQuantityUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pieces</dpwh:frequencyQuantityUnit>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sub_3_2_3_VolIII">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SubItem"/>
+  <dpwh:isPartOfItem rdf:resource="#Item_3_VolIII"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3.2.3</rdfs:label>
+  <dpwh:subItemDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3.2.3</dpwh:subItemDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_016">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#MaterialRequirement"/>
+  <dpwh:hasSourceItem rdf:resource="#Item_3_VolIII"/>
+  <dpwh:hasSourceSubItem rdf:resource="#Sub_3_2_3_VolIII"/>
+  <dpwh:appliesToWorkType rdf:resource="http://www.example.org/dpwh-bluebook#FloodControlAndDrainage"/>
+  <dpwh:appliesToMaterial rdf:resource="#Reinforced_Concrete_Pipe"/>
+  <dpwh:hasLimit rdf:resource="#TMP_016_limit"/>
+  <dpwh:requiresTestMethod rdf:resource="#Absorption_Test_ASTM_C497"/>
+  <dpwh:hasTestingFrequency rdf:resource="#TMP_016_frequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TMP-016</rdfs:label>
+  <dpwh:verbatimText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reinforced concrete pipe shall have a water absorption of not more than 9 percent.</dpwh:verbatimText>
+  <dpwh:requirementText rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reinforced concrete pipe shall have a water absorption of not more than 9 percent.</dpwh:requirementText>
+  <dpwh:normativeStrength rdf:datatype="http://www.w3.org/2001/XMLSchema#string">shall</dpwh:normativeStrength>
+  <dpwh:sourcePage rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</dpwh:sourcePage>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PLACEHOLDER value - replace after OCR and adviser verification</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#absorption">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#QualityParameter"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">absorption</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">water absorption</rdfs:label>
+  <dpwh:parameterName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">absorption</dpwh:parameterName>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_016_limit">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#SpecificationLimit"/>
+  <dpwh:limitsParameter rdf:resource="#absorption"/>
+  <dpwh:hasUnit rdf:resource="#unit"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit of TMP-016</rdfs:label>
+  <dpwh:hasMaximumValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</dpwh:hasMaximumValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Absorption_Test_ASTM_C497">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestMethod"/>
+  <dpwh:followsStandard rdf:resource="#ASTM_C497"/>
+  <dpwh:measuresParameter rdf:resource="#absorption"/>
+  <dpwh:appliesToMaterial rdf:resource="#Reinforced_Concrete_Pipe"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Absorption Test</rdfs:label>
+  <dpwh:standardDesignation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASTM C497</dpwh:standardDesignation>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#TMP_016_frequency">
+  <rdf:type rdf:resource="http://www.example.org/dpwh-bluebook#TestingFrequency"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 per 100 pieces</rdfs:label>
+  <dpwh:frequencyCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</dpwh:frequencyCount>
+  <dpwh:frequencyQuantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">100.0</dpwh:frequencyQuantity>
+  <dpwh:frequencyQuantityUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pieces</dpwh:frequencyQuantityUnit>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>

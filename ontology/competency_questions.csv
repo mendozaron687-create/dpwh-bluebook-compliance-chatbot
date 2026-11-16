@@ -1,0 +1,31 @@
+id,category,question,key_classes_and_properties,status
+CQ01,Provenance,Which Blue Book Item and volume edition does a given requirement come from?,Requirement; hasSourceItem; belongsToVolume; editionYear,draft
+CQ02,Provenance,What is the verbatim source text and page of a given requirement?,verbatimText; sourcePage; hasSourceSubItem,draft
+CQ03,Provenance,Which Items cross-reference a given Item?,crossReferencesItem,draft
+CQ04,Scope,Which requirements apply to a given public work type (highway; bridge; airport; building; flood control and drainage)?,appliesToWorkType; PublicWorkType,draft
+CQ05,Scope,Which Items in Volume II (2013) versus Volume III (2019) govern a given material?,appliesToMaterial; hasSourceItem; belongsToVolume,draft
+CQ06,Material,What material requirements apply to a given material?,MaterialRequirement; appliesToMaterial,draft
+CQ07,Material,Which standard does a given material follow?,followsStandard; ReferenceStandard; standardDesignation,draft
+CQ08,Material,What classes or grades of a given material are specified and under what conditions?,applicableClassOrGrade; hasCondition; ApplicabilityCondition,draft
+CQ09,Material,What are the minimum and maximum limits for a given property of a material (for example gradation; strength; absorption)?,QuantitativeLimit; limitsParameter; hasMinimumValue; hasMaximumValue; hasUnit,draft
+CQ10,Testing,Which test methods apply to a given material?,hasApplicableTestMethod; TestMethod,draft
+CQ11,Testing,Which parameter does a given test method measure and which standard does it follow?,measuresParameter; followsStandard,draft
+CQ12,Testing,What is the acceptance criterion for a given test on a given material?,hasAcceptanceCriterion; AcceptanceCriterion,draft
+CQ13,Testing,How often must a given material or work be sampled or tested?,TestingFrequency; frequencyCount; frequencyQuantity; frequencyQuantityUnit,draft
+CQ14,Testing,At what curing age must a strength requirement be met?,curingAgeDays; hasLimit,draft
+CQ15,Testing,Which testing requirements are mandatory (shall) versus recommended (should)?,normativeStrength; TestingRequirement,draft
+CQ16,Acceptance,What is the allowable tolerance for a given parameter of a work item (for example thickness; surface regularity; alignment)?,ToleranceValue; hasTolerance; limitsParameter,draft
+CQ17,Acceptance,Is a submitted test value within the acceptance limit for the applicable requirement?,TestResult; evaluatesLimit; measuredValue; SWRL rules; ComplianceOutcome,draft
+CQ18,Acceptance,Are the units of a submitted value the same as the units of the limit?,hasUnit; MeasurementUnit,draft
+CQ19,Acceptance,What acceptance criteria apply when a requirement has several conditional limits?,hasCondition; hasLimit,draft
+CQ20,Workmanship,What workmanship requirements apply to a given construction work item?,WorkmanshipRequirement; appliesToWork,draft
+CQ21,Workmanship,What conditions (weather; temperature; surface preparation) must be met before a work item is carried out?,WorkmanshipRequirement; ApplicabilityCondition; conditionText,draft
+CQ22,Workmanship,What placement; compaction; or curing requirements apply to a given work item?,WorkmanshipRequirement; hasLimit; requirementText,draft
+CQ23,Quality control,What QC activities (sampling; inspection; testing; submittals) are required for a given work item?,requiresActivity; QualityControlActivity,draft
+CQ24,Quality control,What certificates or test reports must be submitted for a given material?,SubmittalActivity; QualityControlRequirement,draft
+CQ25,Quality control,What QC requirements apply before acceptance of a given work item?,QualityControlRequirement; AcceptanceCriterion,draft
+CQ26,Quality assurance,What QA requirements does the Blue Book impose on a given work item or material?,QualityAssuranceRequirement,draft
+CQ27,Quality assurance,Which provisions are affected when a referenced standard is changed?,followsStandard; ReferenceStandard,draft
+CQ28,Cross-cutting,Which requirements apply to a given work item under both a material requirement and a testing requirement?,MaterialRequirement; TestingRequirement; appliesToWork,draft
+CQ29,Cross-cutting,What information is missing to decide compliance for a given scenario?,InsufficientInformation; hasLimit; hasCondition,draft
+CQ30,Cross-cutting,Which Items cover a given topic (for example concrete; asphalt; reinforcing steel)?,BlueBookItem; itemTitle; hasSourceItem,draft

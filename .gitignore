@@ -1,0 +1,22 @@
+# Secrets
+.env
+*.env
+
+# Protégé application bundle (download separately)
+Protege-5.6.9/
+
+# Source documents: the 2013 Blue Book scan is 240 MB (over GitHub's limit) and the
+# thesis drafts are not part of the code deliverable.
+*.pdf
+
+# Python
+__pycache__/
+*.pyc
+
+# Generated evaluation output
+chatbot/results/
+
+# Editor / OS noise
+.vscode/
+Thumbs.db
+desktop.ini
